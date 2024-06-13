@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Form</title>
+
+	<link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide.min.css">
+	<script src="/resources/js/jquery/jquery.js"></script>
+	<script src="/resources/js/jquery/jquery-ui.min.js"></script>
+	<script src="/resources/js/mustache/mustache-min.js"></script>
+	<script src="/style-guide/js/fluig-style-guide.min.js"></script>
+
+	<!-- CUSTOM -->
+	<link href="/style-guide/css/fluig-style-guide-filter.min.css" rel="stylesheet" type="text/css">
+	<link href="/style-guide/css/fluig-style-guide-ratingstars.min.css" rel="stylesheet" type="text/css">
+	<script src="/style-guide/js/fluig-style-guide-filter.min.js"></script>
+	<script src="/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+	<link href='/webdesk/customresources?cid=1&resourceName=temaFormulario/0.css' type='text/css' rel='stylesheet' />
+	<style>
+		.required::after {
+			content: " *";
+			color: red;
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body class="fluig-style-guide">
+	<form class="totvs-form grid vertical create-form-components ui-sortable t0" name="createFormComponents" style="padding-left: 10px; padding-right: 10px;">
+		<h1 class="title-form-application">Formulário de Abertura de Solicitação - Entrada de Notas</h1>
+		<div class="panel panel-primary" id="div_solicitante">
+			<div class="panel-heading" style="font-weight: 800;"><i class="flaticon flaticon-person icon-lg" aria-hidden="true"></i> Solicitante</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="nomeSolicitante">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required">Nome do solicitante</label>
+									<input type="text" class="form-control" name="nomeSolicitante" value="" placeholder="Digite o nome completo" data-size="big" analytics="true" gooddataid="1" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="contato">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required">Contato (telefone ou e-mail) do solicitante</label>
+									<input type="text" class="form-control" name="contato" value="" placeholder="" data-size="big" analytics="true" gooddataid="3" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-field" data-type="combo" data-show-properties="" data-field-name="unidade">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required">Unidade do solicitante</label>
+									<select class="form-control" name="unidade" analytics="true" gooddataid="2" dataset="ds_unidade" datasetkey="Nome" datasetvalue="Nome" datasetorder="Nome"></select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-field" data-type="combo" data-show-properties="" data-field-name="segmento" style="position: relative; left: 0px; top: 0px;">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required">Segmento/Setor/Departamento do solicitante</label>
+									<select class="form-control" name="segmento" analytics="true" gooddataid="10" dataset="ds_segmento" datasetkey="Nome" datasetvalue="Nome" datasetorder="Nome"></select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-primary" id="div_solicitacao">
+			<div class="panel-heading" style="font-weight: 800;"><i class="flaticon flaticon-document-block icon-lg" aria-hidden="true"></i> Solicitação</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="assunto">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required">Assunto</label>
+									<input type="text" class="form-control" name="assunto" value="" placeholder="" data-size="big" analytics="true" gooddataid="4">
+								</div>
+							</div>
+						</div>
+						<div class="form-field" data-type="combo" data-show-properties="" data-field-name="categoria">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required">Categoria</label>
+									<select class="form-control" name="categoria" analytics="true" gooddataid="5">
+										<option value="Selecione uma opção">Selecione uma opção</option>
+										<option value="Entrada de notas - Beira Rio">Entrada de notas - Beira Rio</option>
+										<option value="Entrada de notas - Decio Mania">Entrada de notas - Decio Mania</option>
+										<option value="Entrada de notas - Decio Variedades/VilaTreze">Entrada de notas - Decio
+											Variedades/VilaTreze</option>
+										<option value="Entrada de notas - Farmácia">Entrada de notas - Farmácia</option>
+										<option value="Entrada de notas - Rododecio">Entrada de notas - Rododecio</option>
+										<option value="Entrada de notas - Urbanos">Entrada de notas - Urbanos</option>
+										<option value="Ajustes Unidades">Ajustes Unidades</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="mensagem">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required">Mensagem</label>
+									<textarea class="form-control" rows="3" name="mensagem" placeholder="" data-size="big" analytics="true" gooddataid="6"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-primary" id="div_aprovar_solicitacao">
+			<div class="panel-heading" style="font-weight: 800;"><i class="flaticon flaticon-document-approved icon-lg" aria-hidden="true"></i> Aprovar solicitação</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="gest_logistica_aprovado">Aprovado?</label><br />
+							<label class="radio-inline">
+								<input type="radio" id="inlineradio1" name="gest_logistica_aprovado" value="Sim"> Aprovado
+							</label>
+							<label class="radio-inline">
+								<input type="radio" id="inlineradio2" name="gest_logistica_aprovado" value="Não"> Reprovado
+							</label>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="required" for="gest_logistica_obs">Observações</label>
+							<textarea class="form-control" rows="3" name="gest_logistica_obs" placeholder="" data-size="big" analytics="true" gooddataid="8"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-primary" id="div_tratativa_solicitacao">
+			<div class="panel-heading" style="font-weight: 800;"><i class="flaticon flaticon-document-approved icon-lg" aria-hidden="true"></i> Tratativa da solicitação</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-field" data-type="zoomfield" data-show-properties="" data-field-name="atendente" style="position: relative; left: 0px; top: 0px;">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required" for="zoom">Atendente entrada de notas</label>
+									<div class="input-group">
+										<input type="zoom" class="form-control" name="atendente" analytics="true" gooddataid="10" dataset="ds_entrada_de_notas" zoomvalue="ID" datasetvalue="Nome" data-zoom="{'displayKey':'Nome','datasetId':'ds_entrada_de_notas','fields':[{'field':'Nome','label':'Nome','standard':true}]}">
+										<div class="input-group-addon zoom-preview">
+											<span class="fluigicon fluigicon-zoom-in"></span>
+										</div>
+										<input type="hidden" name="hidden_atendente" id="hidden_atendente" analytics="true" gooddataid="10">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-field" data-type="combo" data-show-properties="" data-field-name="revisaoSolicita" style="position: relative; left: 0px; top: 0px;">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required">Necessário revisão do solicitante?</label>
+									<select class="form-control" name="revisaoSolicita" analytics="true" gooddataid="7" datasetorder="Nome">
+										<option value="Selecione uma opção">Selecione uma opção</option>
+										<option value="Não">Não</option>
+										<option value="Sim">Sim</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-field" data-type="combo" data-show-properties="" data-field-name="despesaReceita" style="position: relative; left: 0px; top: 0px;">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required">Necessário lançamento de despesas / receita?</label>
+									<select class="form-control" name="despesaReceita" datasetorder="Nome">
+										<option value="Selecione uma opção">Selecione uma opção</option>
+										<option value="Não">Não</option>
+										<option value="Sim">Sim</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="mensagemTratati">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required">Mensagem tratativa</label>
+									<textarea class="form-control" rows="3" name="mensagemTratati" placeholder="" data-size="big" analytics="true" gooddataid="8"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-primary" id="div_tratativa_solicitacao_despesas">
+			<div class="panel-heading" style="font-weight: 800;"><i class="flaticon flaticon-document-approved icon-lg" aria-hidden="true"></i> Tratativa da solicitação - Despesas</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-field" data-type="combo" data-show-properties="" data-field-name="revisaoEntrada" style="position: relative; left: 0px; top: 0px;">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required">Necessário revisão do solicitante Entrada de Notas?</label>
+									<select class="form-control" name="revisaoEntrada" dataset="ds_opcao_sim_nao" datasetkey="ID" datasetvalue="Nome" datasetorder="Nome"></select>
+								</div>
+							</div>
+						</div>
+						<div class="form-field" data-type="zoomfield" data-show-properties="" data-field-name="atendenteDespes">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required" for="zoom">Atendente despesas</label>
+									<div class="input-group">
+										<input type="zoom" class="form-control" name="atendenteDespes" analytics="true" gooddataid="9" dataset="ds_despesas" zoomvalue="ID" datasetvalue="Nome" data-zoom="{'displayKey':'Nome','datasetId':'ds_despesas','fields':[{'field':'Nome','label':'Nome','standard':true}]}">
+										<div class="input-group-addon zoom-preview"><span class="fluigicon fluigicon-zoom-in"></span>
+										</div>
+										<input type="hidden" name="hidden_atendenteDespes" id="hidden_atendenteDespes" analytics="true" gooddataid="9">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="mensagemDespesa" style="position: relative; left: 0px; top: 0px;">
+							<div class="form-input">
+								<div class="form-group">
+									<label class="required">Mensagem tratativa despesas</label>
+									<textarea class="form-control" rows="3" name="mensagemDespesa" placeholder="" data-size="big" analytics="true" gooddataid="10"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- DIV painel Atribuição ------------------------- -->
+		<div class="panel panel-primary" id="div_atribuicoes" style="background-color: #fa8888;">
+			<!-- v:066 24-01-2024 inplantação do processo de notificação-->
+			<div class="panel-heading"><i class="flaticon flaticon-document-approved icon-lg"></i>Painel de Atribuição V:66 24-01-2024</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-3 col-xs-12">
+						<label>Atividade</label>
+					</div>
+					<div class="col-md-3 col-xs-12">
+						<label>Atribuição</label>
+					</div>
+					<div class="col-md-3 col-xs-12">
+						<label>Substituição</label>
+					</div>
+					<div class="col-md-3 col-xs-12">
+						<label>Prazo</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-xs-12">
+						<label>027-Notificação</label>
+					</div>
+					<div class="col-md-3 col-xs-3">
+						<input class="col-md-12 col-xs-12" value="" id="cTask027" type="text" name="cTask027" />
+						<br>
+					</div>
+
+					<div class="col-md-3 col-xs-12">
+						<input type="zoom" class="form-control" name="zTask027" id="zTask027" dataset="colleague" zoomvalue="colleagueId" datasetvalue="colleagueName" data-zoom="{
+								'displayKey':'colleagueName',
+								'datasetId':'colleague',
+								'maximumSelectionLength':'1',
+								'placeholder':'Escolha um usuário',
+								'filterValues':'active,true',
+								'fields':[
+									{
+									'field':'login',
+									'label':'Login',
+									'standard':'true'
+									}
+							]
+						}">
+					</div>
+					<div class="col-md-3 col-xs-12">
+						<input value="" id="nTask027" type="text" name="nTask027" mask="000:00" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<script type="text/javascript">
+		var keyDown = false, ctrl = 17, vKey = 86, Vkey = 118;
+
+		$(document).keydown(function (e) {
+			if (e.keyCode == ctrl) keyDown = true;
+		}).keyup(function (e) {
+			if (e.keyCode == ctrl) keyDown = false;
+		});
+
+		$('[data-only-numbers]').on('keypress', function (e) {
+			if (!e) {
+				var e = window.event;
+			}
+
+			if (e.keyCode > 0 && e.which == 0) {
+				return true;
+			}
+
+			if (e.keyCode) {
+				code = e.keyCode;
+			} else if (e.which) {
+				code = e.which;
+			}
+
+			if (code == 46) {
+				return true;
+			}
+
+			var character = String.fromCharCode(code);
+			if (character == '\b' || character == ' ' || character == '\t') {
+				return true;
+			}
+			if (keyDown && (code == vKey || code == Vkey)) {
+				return (character);
+			} else {
+				return (/[0-9]$/.test(character));
+			}
+		}).on('focusout', function (e) {
+			var $this = $(this);
+			if ($this.val() == "") {
+				return true;
+			}
+			$this.val($this.val().replace(/[^0-9\.]/g, ''));
+		}).on('paste', function (e) {
+			var $this = $(this);
+			setTimeout(function () {
+				$this.val($this.val().replace(/[^0-9\.]/g, ''));
+			}, 5);
+		});
+
+
+
+		$('.create-form-components').on('keyup', 'input[required="required"][type="text"], input[required="required"][type="number"], input[required="required"][type="date"], textarea[required="required"]', function () {
+			validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+		});
+
+		$('.create-form-components').on('change', 'input[required="required"][type="checkbox"], input[required="required"][type="radio"], select[required="required"]', function () {
+			validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+		});
+
+		function validationFieldsForm(field, type) {
+			if (type === "checkbox" || type === "radio") {
+				if (!field.is(':checked')) {
+					field.parents('.form-field').addClass('required');
+				} else {
+					field.parents('.form-field').removeClass('required');
+				}
+			} else {
+				if (!field.val().trim()) {
+					field.parents('.form-field').addClass('required');
+				} else {
+					field.parents('.form-field').removeClass('required');
+				}
+			}
+		}
+
+		var $zoomPreview = $(".zoom-preview");
+		if ($zoomPreview.length) {
+			$zoomPreview.parent().removeClass("input-group");
+			$zoomPreview.remove();
+		}
+
+		var ratings = $(".rating");
+		if (ratings.length > 0) ratingStars(ratings);
+		function ratingStars(stars) {
+			$.each(stars, function (i, obj) {
+				var field = $(this).closest(".form-group").find(".rating-value");
+				var tgt = $(obj);
+				tgt.html("");
+				var rating = FLUIGC.stars(tgt, { value: field.val() });
+				rating.on("click", function (o) {
+					field.val($(this).index() + 1);
+				});
+			});
+		}
+
+		$.each($("[data-date]"), function (i, o) {
+			var id = $(o).attr("id");
+			FLUIGC.calendar("#" + id);
+		});
+
+		$(document).ready(function () {
+			$.each($("[data-date]"), function (i, o) {
+				var id = $(o).attr("id");
+				if ($("#" + id).attr("readonly")) {
+					$("#" + id).data('DateTimePicker').disable();
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>
