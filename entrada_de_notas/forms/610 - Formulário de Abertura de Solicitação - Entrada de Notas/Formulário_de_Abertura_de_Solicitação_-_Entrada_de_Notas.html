@@ -16,6 +16,7 @@
 	<script src="/style-guide/js/fluig-style-guide-filter.min.js"></script>
 	<script src="/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
 	<link href='/webdesk/customresources?cid=1&resourceName=temaFormulario/0.css' type='text/css' rel='stylesheet' />
+  <script type="text/javascript" src="Formulário_de_Abertura_de_Solicitacao_-_Entrada_de_Notas.js"></script>
 	<style>
 		.required::after {
 			content: " *";
@@ -152,14 +153,22 @@
 						<div class="form-field" data-type="zoomfield" data-show-properties="" data-field-name="atendente" style="position: relative; left: 0px; top: 0px;">
 							<div class="form-input">
 								<div class="form-group">
-									<label class="required" for="zoom">Atendente entrada de notas</label>
-									<div class="input-group">
-										<input type="zoom" class="form-control" name="atendente" analytics="true" gooddataid="10" dataset="ds_entrada_de_notas" zoomvalue="ID" datasetvalue="Nome" data-zoom="{'displayKey':'Nome','datasetId':'ds_entrada_de_notas','fields':[{'field':'Nome','label':'Nome','standard':true}]}">
-										<div class="input-group-addon zoom-preview">
-											<span class="fluigicon fluigicon-zoom-in"></span>
-										</div>
-										<input type="hidden" name="hidden_atendente" id="hidden_atendente" analytics="true" gooddataid="10">
-									</div>
+                  <label class="required" title="Grupo 04-ENTRADA_NF-ATENDENTE">Atendente entrada de notas</label>
+                  <input title="ds_entrada_de_notas" class="form-control" type="zoom" zoomvalue="colleagueId" 
+                  dataset="dsUsuariosPorGrupo" datasetvalue="colleagueName" id="atendente" name="atendente" data-zoom="{
+                      'displayKey':'colleagueName',
+                      'datasetId':'dsUsuariosPorGrupo',
+                      'maximumSelectionLength':'1',
+                      'placeholder':'Escolha um usuário',
+                      'filterValues':'active,true',
+                      'fields':[{
+                        'field':'colleagueId',
+                        'label':'Matrícula'
+                        },{
+                        'field':'colleagueName',
+                        'label':'Nome'
+                        }]
+                      }">
 								</div>
 							</div>
 						</div>
@@ -219,13 +228,22 @@
 						<div class="form-field" data-type="zoomfield" data-show-properties="" data-field-name="atendenteDespes">
 							<div class="form-input">
 								<div class="form-group">
-									<label class="required" for="zoom">Atendente despesas</label>
-									<div class="input-group">
-										<input type="zoom" class="form-control" name="atendenteDespes" analytics="true" gooddataid="9" dataset="ds_despesas" zoomvalue="ID" datasetvalue="Nome" data-zoom="{'displayKey':'Nome','datasetId':'ds_despesas','fields':[{'field':'Nome','label':'Nome','standard':true}]}">
-										<div class="input-group-addon zoom-preview"><span class="fluigicon fluigicon-zoom-in"></span>
-										</div>
-										<input type="hidden" name="hidden_atendenteDespes" id="hidden_atendenteDespes" analytics="true" gooddataid="9">
-									</div>
+                  <label class="required" title="Grupo 04-ENTRADA_NF-ATENDENTEDESPES">Atendente despesas</label>
+                  <input title="ds_despesas" class="form-control" type="zoom" zoomvalue="colleagueId" 
+                  dataset="dsUsuariosPorGrupo" datasetvalue="colleagueName" id="atendenteDespes" name="atendenteDespes" data-zoom="{
+                      'displayKey':'colleagueName',
+                      'datasetId':'dsUsuariosPorGrupo',
+                      'maximumSelectionLength':'1',
+                      'placeholder':'Escolha um usuário',
+                      'filterValues':'active,true',
+                      'fields':[{
+                        'field':'colleagueId',
+                        'label':'Matrícula'
+                        },{
+                        'field':'colleagueName',
+                        'label':'Nome'
+                        }]
+                      }">
 								</div>
 							</div>
 						</div>
